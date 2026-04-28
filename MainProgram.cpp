@@ -1,4 +1,4 @@
-// ============================================================
+/// ============================================================
 // Lab: More Details about Classes
 // Course: Object-Oriented Programming (C++)
 // Level: 2nd Year Engineering
@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+using namespace std;
 
 // ============================================================
 // CLASS DEFINITIONS
@@ -19,7 +20,7 @@ private:
     double y;
 public:
     // TODO 1: Constructor with member initializer list (double x, double y)
-    Point(double x, double y) : x(X), y(y) {}  // stub — fix initializer
+    Point(double x, double y) : x(x), y(y) {}  // stub — fix initializer
 
     // TODO 2: const getter for x
     double getX() const { return x; }   // stub — add const
@@ -28,7 +29,7 @@ public:
     double getY() const { return y; }   // stub — add const
 
     // TODO 4: const display()
-    void display() const { std::cout << "("<<X <<","<< y <<" )"; }
+    void display() const { std::cout << "("<<x <<","<< y <<" )"; }
 
     // TODO 5: declare Rectangle as friend class
     friend class Rectangle;
@@ -60,11 +61,11 @@ public:
         std::cout << "\nBottomRight: ";
         bottomRight.display();
         std::cout << "\nWidth: " << getWidth()
-             << ", Height: "<< getheight()
-             << ", Area: "  <<getArea() <<end1 ;
-
+             << ", Height: "<< getHeight()
+             << ", Area: "  <<getArea() <<endl ;
+    }
     // TODO 11: declare isSameSize as friend function
-    friend bool isSameSize(const Reactangle& r1, const Rectangle& r2);
+    friend bool isSameSize(const Rectangle& r1, const Rectangle& r2);
 };
 
 
@@ -89,7 +90,7 @@ public:
     void doubleValue() {value *=2;}  // stub
 
     // TODO 16: const constGetDouble() — returns value * 2 without modifying
-    int constGetDouble() const { return * 2; }  // stub — add const + fix body
+    int constGetDouble() const { return value * 2; }  // stub — add const + fix body
 };
 
 
@@ -103,14 +104,14 @@ int main() {
     Rectangle rect1(0,0,4,3);
     Rectangle rect2(1,1,4,4);
     
-    std:cout << "\nRect1:\n"; rect1.display();
-    std:cout << "\nRect2:\n"; rect2.display();
+    std::cout << "\nRect1:\n"; rect1.display();
+    std::cout << "\nRect2:\n"; rect2.display();
     
-    std::cout << "\nSame Size? " << (isSameSize(rect1,rect2) ? "yes" : "No")
+    std::cout << "\nSame Size? " << (isSameSize(rect1,rect2) ? "yes" : "No");
     
     const ConstDemo cd1(7);
     std::cout << "const object value : " << cd1.getValue() <<"\n";
-    std::cout << "const object doubled : " << cd1.getdoubled() <<"\n";
+    std::cout << "const object doubled : " << cd1.constGetDouble() <<"\n";
     
     ConstDemo cd2(5);
     cd2.doubleValue();
